@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loc8</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(7, 3rem);
+            grid-template-rows: repeat(7, 3rem);
+            gap: .5rem;
+        }
+        
+        div {
+            font-family: 'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: transparent;
+            user-select: none;
+            text-align: center;
+            border-radius: 50%;
+            border: .25rem solid rgb(4, 20, 220);
+        }
+        
+        .number {
+            background-color: rgba(20, 50, 245, 1);
+        }
+        
+        .total {
+            color: darkblue;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            let numbers = [8, 7, 7, 6, 6, 6, 5, 5, 5, 5,
+                4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3,
+                2, 2, 2, 2, 2, 2, 2,
+                1, 1, 1, 1, 1, 1, 1, 1
+            ];
+
+
+            function shuffle(array) {
+                var m = array.length,
+                    t, i;
+
+                //while there remain elements to shuffle...
+
+                while (m) {
+                    //pick a remaining element...
+                    i = Math.floor(Math.random() * m--);
+                    //and swap it with the current element.
+                    t = array[m];
+                    array[m] = array[i];
+                    array[i] = t;
+                }
+                return (array);
+
+            };
+            let x = 1;
+            //esto de "Remaining" era la idea de un counter sobre lo que aún no encontraste
+            // let remaining = 7;
+            for (let r = 1; r < 7; r++) {
+
+                for (let c = 1; c < 7; c++) {
+                    //acá empieza la creación:
+
+                    const newDiv = `<div class="r${r} c${c} number"></div>`
+
+                    document.body.innerHTML += newDiv;
+                }
+                document.body.innerHTML += `<div id="totalsC${x}" class="total"></div>`;
+                x++;
+                // document.body.innerHTML += `<input type="number" min="0" max="${remaining}" id="remaining${remaining}" class="remaining" value="${remaining}">`;
+                // remaining--;
+            }
+            for (x = 1; x < 7; x++) {
+                document.body.innerHTML += `<div id="totalsR${x}" class="total"></div>`;
+            }
+
+            function initializeGame() {
+
+
+                let newNumbers = numbers;
+                shuffle(newNumbers);
+
+                let i = 0;
+
+                for (let r = 1; r < 7; r++) {
+                    for (let c = 1; c < 7; c++) {
+                        document.querySelector(`.r${r}.c${c}`).innerHTML = newNumbers[i];
+                        i++;
+                    }
+
+                }
+                updateTotals();
+            }
+
+            function updateTotals() {
+                let newNumbers = numbers; //esto no sé si va, quizás esté duplicado
+                //creo acá a tIndex como un índice para la creación de estos Totales,
+                //y creo también a unos counter que usaré al iterar acá
+                let tIndex = 0;
+                let counter1, counter2, counter3, counter4, counter5, counter6;
+                for (let r = 1; r < 7; r++) {
+                    counter1 = tIndex;
+                    counter2 = tIndex + 6;
+                    counter3 = tIndex + 12;
+                    counter4 = tIndex + 18;
+                    counter5 = tIndex + 24;
+                    counter6 = tIndex + 30;
+                    document.querySelector(`#totalsR${r}`).innerHTML = newNumbers[counter1] + newNumbers[counter2] + newNumbers[counter3] +
+                        newNumbers[counter4] + newNumbers[counter5] + newNumbers[counter6];
+                    // console.log(newNumbers[`${tIndex}+1`])
+                    tIndex++;
+                }
+                tIndex = 0;
+                for (let c = 1; c < 7; c++) {
+                    let r = 1; //estará de más esto?
+                    counter1 = tIndex;
+                    counter2 = tIndex + 1;
+                    counter3 = tIndex + 2;
+                    counter4 = tIndex + 3;
+                    counter5 = tIndex + 4;
+                    counter6 = tIndex + 5;
+                    document.querySelector(`#totalsC${c}`).innerHTML = newNumbers[counter1] + newNumbers[counter2] + newNumbers[counter3] +
+                        newNumbers[counter4] + newNumbers[counter5] + newNumbers[counter6];
+                    tIndex += 6;
+
+                }
+
+            }
+            let score = 0;
+
+            document.querySelectorAll(".number").forEach(div => {
+                div.onclick = function() {
+                    this.style.backgroundColor = "lightblue";
+                    this.style.color = "darkblue";
+                    if (this.innerHTML != "8") {
+                        score += parseInt(this.innerHTML);
+                        console.log(score);
+                    }
+                    if (score === 112) {
+                        alert("YOU WON! Congratulations!")
+                        location.reload()
+                    } else if (this.innerHTML === "8") {
+                        alert("You lost!")
+                        location.reload()
+                    }
+                }
+            })
+
+            initializeGame();
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<!-- Ideas: 
+agregar un DIV grande tipo container abajo de todo y ahí ir poniendo los números que ya salieron? 
+Quizás con flex wrap armando así siete renglones, quizás prendiéndose lucecitas digamos, se pinta un grid?
+
+poner el table en un container llamado gameBoard o algo así, y por arriba de eso el h1 del título e instrucciones?
+
+
+How to play:
+*The 6x6 board has eight cells with the number 1, seven with the number 2, six with the number 3, five with the number 4, four with the number 5, 
+three with the number 6, two with the number 7 and only one with the number 8... which should be avoided at all costs, because if you click on it it will be game over!
+
+*When you start, you can only see the totals for each row and column. Use that as a guide so to avoid clicking on the cell containing the number 8!
+
+*loc8 can be played in solitaire mode, but should be more enjoyable if played in teams: this way, every team can click on one, two or three cells (as they wish), and then pass the turn to the next team.
+...hopefully, leaving them in a tight spot!
