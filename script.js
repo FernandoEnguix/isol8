@@ -6,7 +6,7 @@ setInterval(updateTimer, 1000)
 
 function setBestTime() {
     if (!localStorage.getItem("bestTime")) {
-        localStorage.setItem("bestTime", 0);
+        localStorage.setItem("bestTime", 1000);
     }
     bestTime = localStorage.getItem("bestTime");
     document.getElementById("spanBestTime").innerHTML = `${bestTime}s`;
