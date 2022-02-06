@@ -1,0 +1,69 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    max-height: 3rem;
+    justify-content: center;
+    border: .15rem solid darkblue;
+    border-radius: 1rem;
+    background-color: lightblue;
+    max-width: 10rem;
+}
+
+h1 {
+    max-height: 3rem;
+    min-width: 30rem;
+    background: linear-gradient( darkblue 25%, lightblue 50%, darkblue 75%);
+    background-clip: text;
+    color: darkblue;
+    font-size: 3rem;
+    margin-left: 43%;
+    margin-top: 1rem;
+    animation: gradient 6s ease-in-out alternate infinite;
+}
+
+@keyframes gradient {
+    50% {
+        color: transparent
+    }
+    from,
+    45%,
+    55%,
+    to {
+        color: darkblue;
+    }
+}
+
+#gameBoard {
+    display: grid;
+    grid-template-columns: repeat(7, 3rem);
+    grid-template-rows: repeat(7, 3rem);
+    gap: .5rem;
+    justify-content: center;
+}
+
+.number,
+.total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: transparent;
+    user-select: none;
+    text-align: center;
+    border-radius: 50%;
+    border: .25rem solid rgb(4, 20, 220);
+}
+
+.number {
+    background-color: rgba(20, 50, 245, 1);
+}
+
+.total {
+    color: darkblue;
+}
