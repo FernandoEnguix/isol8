@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 :root {
-    --backgroundColor: rgb(237, 243, 255);
+    /* --backgroundColor: rgb(237, 243, 255); */
+    --backgroundColor: rgb(231, 223, 255);
 }
 
 body {

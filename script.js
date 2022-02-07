@@ -4,6 +4,8 @@ let bestTime;
 
 setInterval(updateTimer, 1000)
 
+
+
 function setBestTime() {
     if (!localStorage.getItem("bestTime")) {
         localStorage.setItem("bestTime", 1000);
@@ -38,7 +40,11 @@ function shuffle(array) {
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+    // document.getElementById("header").addEventListener("click", location.reload())
+
     let x = 1;
+
 
     let numbers = [8, 7, 7, 6, 6, 6, 5, 5, 5, 5,
         4, 4, 4, 4, 4, 3, 3, 3, 3, 3, 3,
