@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+:root {
+    --backgroundColor: rgb(237, 243, 255);
+}
+
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Fredoka One', cursive;
+    background-color: var(--backgroundColor);
 }
 
 #header {
@@ -13,21 +19,54 @@ body {
     margin: 1rem;
 }
 
-button {
+#resetContainer {
+    display: flex;
+    position: relative;
     grid-area: button;
-    border: .15rem solid darkblue;
-    border-radius: 1rem;
-    background-color: lightblue;
     justify-self: end;
+    background-color: rgba(20, 50, 245, 0.75);
+    background-image: url(imgs/resetIconWhite.svg);
+    width: 5rem;
+    height: 5rem;
+    border-radius: 5rem;
+    border: 2px solid rgb(20, 50, 245);
+    box-shadow: .25rem .25rem .25rem rgba(4, 20, 220, 0.3);
+    transition: ease-out 1s;
+}
+
+#resetContainer:hover {
+    transform: rotateZ(25deg);
+    transition-delay: 2s;
+    transition: ease-out .2s;
+}
+
+#resetContainer>img {
+    align-self: center;
+    justify-self: center;
+    width: inherit;
+    height: inherit;
+}
+
+#resetContainer>div {
+    position: absolute;
+    top: 2rem;
+    left: 1rem;
+    transform: rotateZ(-25deg);
+    color: var(--backgroundColor);
 }
 
 h1 {
     grid-area: header;
     background: linear-gradient( darkblue 25%, lightblue 50%, darkblue 75%);
     background-clip: text;
-    color: darkblue;
+    text-shadow: .25rem .25rem .25rem darkblue;
     font-size: 4rem;
+    border-radius: .5rem;
     animation: gradient 6s ease-in-out alternate infinite;
+    border: .1rem solid rgba(4, 20, 220, 0.1);
+    box-shadow: 0 .25rem .25rem #ddddddaa;
+    padding: .25rem;
+    transition: ease-in 1s;
 }
 
 @keyframes gradient {
@@ -38,13 +77,18 @@ h1 {
     45%,
     55%,
     to {
-        color: darkblue;
+        color: rgb(4, 20, 220)
     }
 }
 
 #timer {
     grid-area: timer;
     justify-self: start;
+    color: rgb(20, 50, 245);
+    text-shadow: .5rem .1rem 1rem rgb(20, 50, 245);
+    border: .1rem solid rgba(4, 20, 220, 0.1);
+    border-radius: 0.5rem;
+    transition: ease-in 1s;
 }
 
 #gameBoard {
@@ -53,6 +97,8 @@ h1 {
     grid-template-rows: repeat(7, 3rem);
     gap: .5rem;
     justify-content: center;
+    margin: 3rem 0;
+    transition: ease-in 1s;
 }
 
 .number,
@@ -62,7 +108,6 @@ h1 {
     align-items: center;
     color: transparent;
     user-select: none;
-    text-align: center;
     border-radius: 50%;
     border: .25rem solid rgb(4, 20, 220);
 }
