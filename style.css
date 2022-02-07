@@ -4,24 +4,29 @@ body {
 
 #header {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: "button header timer" ". header .";
+    justify-items: center;
+    align-items: center;
+    height: 10vh;
+    margin: 1rem;
 }
 
 button {
-    
-   
+    grid-area: button;
     border: .15rem solid darkblue;
     border-radius: 1rem;
     background-color: lightblue;
-    
+    justify-self: end;
 }
 
 h1 {
+    grid-area: header;
     background: linear-gradient( darkblue 25%, lightblue 50%, darkblue 75%);
     background-clip: text;
     color: darkblue;
-    font-size: 3rem;
-    
+    font-size: 4rem;
     animation: gradient 6s ease-in-out alternate infinite;
 }
 
@@ -35,6 +40,11 @@ h1 {
     to {
         color: darkblue;
     }
+}
+
+#timer {
+    grid-area: timer;
+    justify-self: start;
 }
 
 #gameBoard {
