@@ -4,7 +4,8 @@ body {
 
 #header {
     display: flex;
-    flex-direction: row; justify-content: center;
+    flex-direction: row; 
+justify-content: space-between;
 }
 
 button {
@@ -16,7 +17,7 @@ button {
     
 }
 
-h1 {;
+h1 {
     background: linear-gradient( darkblue 25%, lightblue 50%, darkblue 75%);
     background-clip: text;
     color: darkblue;
