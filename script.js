@@ -41,7 +41,8 @@ function shuffle(array) {
 document.addEventListener("DOMContentLoaded", () => {
 
 
-    // document.getElementById("header").addEventListener("click", location.reload())
+
+    document.querySelector("#header").addEventListener("click", () => location.reload());
 
     let x = 1;
 
