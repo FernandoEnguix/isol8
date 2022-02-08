@@ -7,7 +7,7 @@ setInterval(updateTimer, 1000)
 
 
 function setBestTime() {
-    if (!localStorage.getItem("bestTime")) || localStorage.getItem("bestTime") === 0 {
+    if (!localStorage.getItem("bestTime") || localStorage.getItem("bestTime") === 0) {
         localStorage.setItem("bestTime", 1000);
     }
     bestTime = localStorage.getItem("bestTime");
