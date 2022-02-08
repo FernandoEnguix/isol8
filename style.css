@@ -60,6 +60,7 @@ h1 {
     grid-area: header;
     background: linear-gradient( darkblue 25%, lightblue 50%, darkblue 75%);
     background-clip: text;
+-webkit-background-clip: text;
     text-shadow: .25rem .25rem .25rem darkblue;
     font-size: 4rem;
     border-radius: .5rem;
