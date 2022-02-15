@@ -60,7 +60,7 @@ h1 {
     grid-area: header;
     background: linear-gradient( darkblue 25%, lightblue 50%, darkblue 75%);
     background-clip: text;
--webkit-background-clip: text;
+    -webkit-background-clip: text;
     text-shadow: .25rem .25rem .25rem darkblue;
     font-size: 4rem;
     border-radius: .5rem;
@@ -120,4 +120,19 @@ h1 {
 
 .total {
     color: darkblue;
+}
+
+#missingNumbers {
+    position: absolute;
+    top: 25%;
+    left: 1rem;
+    background-color: red;
+}
+
+#mis-num-container {
+    background-color: blue;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 30vm;
 }
