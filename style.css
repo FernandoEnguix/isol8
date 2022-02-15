@@ -132,13 +132,13 @@ h1 {
 #mis-num-container {
     background-color: blue;
     display: grid;
-grid-auto-flow: column;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
+    color: white;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
     height: 30vm;
 }
 
-#mis-num-container {
-display: flex;
-
+#mis-num-container > div {
+  border: 1px solid white;   
 }
