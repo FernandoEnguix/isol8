@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>isol8 (work in progress)</title>
+    <title>isol8</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -22,7 +22,11 @@
             <div id="currentTime">Current time: <span id=spanCurrentTime>-</span></div>
             <div id="bestTime">Best time: <span id="spanBestTime">-</span></div>
         </div>
+        <div id="howToPlay">
+            <button id="howToPlayBtn">?</button>
+        </div>
     </div>
+    <div id="container">
     <div id="gameBoard"></div>
     <div id="missingNumbers">
         <h3>Missing numbers:</h3>
@@ -79,24 +83,11 @@
         </div>
 
     </div>
+</div>
 
     <script src="script.js"></script>
 </body>
 
 </html>
 
-<!-- Ideas: 
-agregar un DIV grande tipo container abajo de todo y ahí ir poniendo los números que ya salieron? 
-Quizás con flex wrap armando así siete renglones, quizás prendiéndose lucecitas digamos, se pinta un grid?
 
-poner el table en un container llamado gameBoard o algo así, y por arriba de eso el h1 del título e instrucciones?
-
-
-How to play:
-*The 6x6 board has eight cells with the number 1, seven with the number 2, six with the number 3, five with the number 4, four with the number 5, 
-three with the number 6, two with the number 7 and only one with the number 8... which should be avoided at all costs, because if you click on it it will be game over!
-
-*When you start, you can only see the totals for each row and column. Use that as a guide so to avoid clicking on the cell containing the number 8!
-
-*loc8 can be played in solitaire mode, but should be more enjoyable if played in teams: this way, every team can click on one, two or three cells (as they wish), and then pass the turn to the next team.
-...hopefully, leaving them in a tight spot!
